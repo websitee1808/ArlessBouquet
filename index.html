@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Arless Bouquet - Buket Cantik & Hadiah Spesial</title>
+
+  <!-- SEO -->
+  <!-- Meta Description & Keyword -->
+  <meta name="description" content="Arless Bouquet menyediakan buket cantik dan hadiah spesial seperti buket uang, bouquet snack, artificial flowers, dan custom bouquet lainnya. Cocok untuk hadiah wisuda, ulang tahun, atau momen spesial.">
+  <meta name="keywords" content="buket uang, bouquet snack, bunga artificial, hadiah wisuda, hadiah ulang tahun, bouquet custom, Arless Bouquet, buket cantik, buket murah, bouquet kekinian, bouquet Bandung">
+  <meta name="author" content="Arless Bouquet">
+
+  <!-- Open Graph untuk Sosial Media (WhatsApp, Facebook, Instagram) -->
+  <meta property="og:title" content="Arless Bouquet - Buket & Hadiah Spesial">
+  <meta property="og:description" content="Pesan buket cantik dan hadiah spesial untuk orang tersayang. Arless Bouquet melayani custom sesuai keinginan, cocok untuk semua momen.">
+  <meta property="og:image" content="https://alamatwebkamu.com/foto/logoo.jpg"> <!-- Ganti ke link asli gambar logo -->
+  <meta property="og:url" content="https://alamatwebkamu.com"> <!-- Ganti ke domain asli -->
+  <meta property="og:type" content="website">
+
+  <!-- Kontak & Sosial Media Info (Search Engine Structured Data Style) -->
+  <meta property="og:site_name" content="Arless Bouquet">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arless Bouquet - Buket & Hadiah Spesial">
+  <meta name="twitter:description" content="Dapatkan buket custom dan hadiah spesial hanya di Arless Bouquet. Siap kirim untuk wisuda, ulang tahun, dan acara penting lainnya.">
+  <meta name="twitter:image" content="https://alamatwebkamu.com/foto/logoo.jpg"> <!-- Ganti ke link asli gambar logo -->
+
+  <!-- Informasi Sosial Media -->
+  <meta name="contact:whatsapp" content="https://wa.me/6289638174176">
+  <meta name="contact:email" content="arlessbouquet@gmail.com">
+  <meta name="contact:instagram" content="https://www.instagram.com/bouquet.arlesssid">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #e0f7fa, #bbdefb);
+      color: #333;
+    }
+    header {
+      background: #0d47a1 url('foto/batik.jpg') center/cover no-repeat;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+    .running-text {
+      background: #1976d2;
+      color: white;
+      padding: 0.5rem;
+      overflow: hidden;
+    }
+    nav {
+      background: #1976d2;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    nav a:hover {
+      background: #1565c0;
+    }
+    .product {
+      border: 1px solid #90caf9;
+      margin: 1rem;
+      padding: 1rem;
+      border-radius: 8px;
+      background: #e3f2fd;
+      text-align: center;
+    }
+    .product img {
+      width: 150px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .cart {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      background: #0d47a1;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      z-index: 9999;
+    }
+    .section {
+      margin: 2rem;
+      padding: 1rem;
+      background: #e1f5fe;
+      border-left: 5px solid #1976d2;
+    }
+    .popup, #popup-welcome {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .popup-content {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      max-width: 400px;
+      text-align: center;
+    }
+    button {
+      background: #1976d2;
+      color: white;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: background 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background: #0d47a1;
+      transform: scale(1.05);
+    }
+    .dropdown {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      position: relative;
+      transition: background 0.3s;
+    }
+    .dropdown:hover {
+      background: #1565c0;
+    }
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #1976d2;
+      border-radius: 4px;
+      min-width: 150px;
+      z-index: 999;
+    }
+    .submenu a {
+      display: block;
+      padding: 0.5rem;
+      color: white;
+      text-decoration: none;
+    }
+    .submenu a:hover {
+      background: #1565c0;
+    }
+    .dropdown:hover .submenu {
+      display: block;
+    }
+
+    .slider-container {
+      overflow: hidden;
+      width: calc(100% - 20px); 
+      max-width: 1200px; 
+      height: 600px;
+      margin: 0 auto;
+      position: relative;
+      border-radius: 8px; 
+    }
+    .slider {
+      display: flex;
+      width: 300%;
+      animation: geser 15s linear infinite; 
+    }
+    .slider img {
+      width: 100%;
+      object-fit: cover;
+    }
+    @keyframes geser {
+      0% { transform: translateX(0); }
+      33.33% { transform: translateX(0); }
+      33.34% { transform: translateX(-100%); }
+      66.66% { transform: translateX(-100%); }
+      66.67% { transform: translateX(-200%); }
+      100% { transform: translateX(-200%); }
+    }
+    .section {
+      margin: 2rem;
+      padding: 1rem;
+      background: #e1f5fe;
+      border-left: 5px solid #1976d2;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+    .section.show {
+      display: block;
+      opacity: 1;
+    }
+    .popup-content {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      max-width: 400px;
+      text-align: center;
+      position: relative;
+    }
+    #popup-zoom .popup-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0;
+    }
+    .btn-portfolio {
+      background-color: #4285f4;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+    .btn-portfolio:hover {
+      background-color: #3367d6;
+      transform: scale(1.05);
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div style="display: flex; align-items: center; justify-content: center; gap: 1rem;">
+      <img src="foto/logoo.jpg" alt="Logo" style="width: 120px; height: 120px; border-radius: 50%;">
+      <h1>Arless Bouquet</h1>
+    </div>
+  </header>
+
+  <div class="running-text">
+    <marquee>"Cinta, syukur, dan harapan – semua bisa dirangkai dalam bunga. Lihat koleksi terbaru kami sekarang!" 🌼
+</marquee>
+  </div>
+
+  <div style="padding: 1rem; text-align: center;">
+    <input type="text" id="search-produk" placeholder="Cari Produk..." style="padding: 0.5rem; width: 50%; border-radius: 4px; border: 1px solid #ccc;">
+    <button onclick="cariProduk()" style="margin-left: 10px;">Cari</button>
+  </div>
+
+  <div class="cart" onclick="bukaPopupKeranjang()">
+    <i class="fas fa-shopping-cart"></i>
+    <span id="cart-count">0</span>
+  </div>
+
+  <nav>
+    <a href="#" onclick="keBeranda(); return false;">Beranda</a>
+    <div class="dropdown">
+      Produk
+      <div class="submenu">
+        <a href="#" onclick="tampilProduk('Bouquet Uang'); return false;">Bouquet Uang</a>
+        <a href="#" onclick="tampilProduk('Bouquet Kupu-kupu'); return false;">Bouquet Kupu-kupu</a>
+        <a href="#" onclick="tampilProduk('Bouquet Manly'); return false;">Bouquet Manly</a>
+        <a href="#" onclick="tampilProduk('Bouquet Artificial'); return false;">Bouquet Artificial</a>
+        <a href="#" onclick="tampilProduk('Bouquet Satin'); return false;">Bouquet Satin</a>
+        <a href="#" onclick="tampilProduk('Bouquet Snack'); return false;">Bouquet Snack</a>
+        <a href="#" onclick="tampilProduk('Bouquet Mercy/Kawat'); return false;">Bouquet Mercy/Kawat</a>
+        <a href="#" onclick="tampilProduk('Bouquet Bricks'); return false;">Bouquet Bricks</a>
+        <a href="#" onclick="tampilProduk('Bouquet Foto'); return false;">Bouquet Foto</a>
+        <a href="#" onclick="tampilProduk('Doll Bouquet'); return false;">Doll Bouquet</a>
+        <a href="#" onclick="tampilProduk('Gable Box'); return false;">Gable Box</a>
+      </div>
+    </div>
+    <a href="#deskripsi" onclick="toggleBagian('deskripsi'); return false;">Profil Toko</a>
+    <a href="#kontak" onclick="toggleBagian('kontak'); return false;">Kontak</a>
+    <a href="#" onclick="kePembayaran(); return false;">Pembayaran</a>
+    <button class="btn-portfolio" onclick="window.open('https://drive.google.com/drive/folders/1O7H8eKcHDLz1dXXL7ckjjf9FlKVaGK4f', '_blank')">
+      Portofolio
+    </button>
+  </nav>
+
+  <div class="slider-container" id="slider-container">
+    <div class="slider">
+      <img src="foto/slider1.jpg" alt="Slide 1">
+      <img src="foto/slider2.jpg" alt="Slide 2">
+      <img src="foto/slider3.jpg" alt="Slide 3">
+    </div>
+  </div>
+
+  <main>
+    <section id="produk" class="section">
+      <div class="product">
+        <h3>Bouquet Uang</h3>
+        <img src="foto/moneybouquet.PNG" onclick="zoom('Bouquet Uang')">
+        <p>💸 Uang Asli yang Disusun Artistik : Nilai dan jumlah uang bisa disesuaikan. Disusun rapi membentuk rangkaian buket yang estetis.</p>
+        <p><strong>Harga: Rp 50.000 - Rp 350.000</strong></p>
+        <button onclick="pilihUkuran('Bouquet Uang')">Tambah ke Keranjang</button>
+      </div>
+      <div class="product">
+        <h3>Bouquet Kupu-kupu</h3>
+        <img src="foto/butterflybouquet.PNG" onclick="zoom('Bouquet Kupu-kupu')">
+        <p>🦋 Hiasan Kupu-kupu: Menambahkan kesan hidup dan simbol harapan baik.</p>
+        <p><strong>Harga: Rp 35.000 - Rp 50.000</strong></p>
+        <button onclick="pilihUkuran('Bouquet Kupu-kupu')">Tambah ke Keranjang</button>
+      </div>
+      <div class="product">
+        <h3>Bouquet Manly</h3>
+        <img src="foto/manlybouquet.PNG" onclick="zoom('Bouquet Manly')">
+        <p>🖤 Konsep Manly: Didominasi warna gelap seperti hitam, navy, atau cokelat gelap dengan elemen dekoratif yang kuat dan maskulin.</p>
+        <p><strong>Harga: Rp 35.000 - Rp 135.000</strong></p>
+        <button onclick="pilihUkuran('Bouquet Manly')">Tambah ke Keranjang</button>
+      </div>
+      <div class="product">
+        <h3>Bouquet Artificial</h3>
+        <img src="foto/artificialbouquet.PNG" onclick="zoom('Bouquet Artificial')">
+        <p>🌸 Bunga Artificial: Tahan lama dan tampak nyata, menambah kesan elegan dan tidak mudah rusak.</p>
+        <p><strong>Harga: Rp 35.000 - Rp 135.000</strong></p>
+        <button onclick="pilihUkuran('Bouquet Artificial')">Tambah ke Keranjang</button>
+      </div>
+      <div class="product">
+        <h3>Bouquet Satin</h3>
+        <img src="foto/satinbouquet.PNG" onclick="zoom('Bouquet Satin')">
+        <p>🎀 Pita Satin Premium: Membalut buket dengan kilau halus yang mempercantik tampilan.</p>
+        <p><strong>Harga: Rp 8.000/tangkai</strong></p>
+        <button onclick="pilihUkuran('Bouquet Satin')">Tambah ke Keranjang</button>
+      </div>
+      <div class="product">
+        <h3>Bouquet Snack</h3>
+        <img src="foto/snackbouquet.PNG" onclick="zoom('Bouquet Snack')">
+        <p>🍫 Snack Favorite: Dilengkapi dengan berbagai snack kekinian (bisa request jenis snack).</p>
+        <p><strong>Harga: Rp 35.000 - Rp 135.000</strong></p>
+        <button onclick="pilihUkuran('Bouquet Snack')">Tambah ke Keranjang</button>
+      </div>
+      <div class="product">
+        <h3>Bouquet Mercy/Kawat</h3>
+        <img src="foto/mercybouquet.PNG" onclick="zoom('Bouquet Mercy/Kawat')">
+        <p>🧵 Hiasan Mercy/Kawat Artistik: Menambah struktur dan gaya modern pada rangkaian.</p>
+        <p><strong>Harga: Rp 35.000 - Rp 135.000</strong></p>
+        <button onclick="pilihUkuran('Bouquet Mercy/Kawat')">Tambah ke Keranjang</button>
+      </div>
+      <div class="product">
+        <h3>Bouquet Bricks</h3>
+        <img src="foto/bricksbouquet.PNG" onclick="zoom('Bouquet Bricks')">
+        <p>🧱 Bricks Dekoratif: Elemen dekoratif berbentuk bata kecil berwarna emas/metallic untuk kesan premium.</p>
+        <p><strong>Harga: Rp 35.000 - Rp 135.000</strong></p>
+        <button onclick="pilihUkuran('Bouquet Bricks')">Tambah ke Keranjang</button>
+      </div>
+      <div class="product">
+        <h3>Bouquet Foto</h3>
+        <img src="foto/picturebouquet.PNG" onclick="zoom('Bouquet Foto')">
+        <p>🖼 Foto/Gambar Custom: Bisa ditambahkan foto kenangan, karakter favorit, atau ucapan personal.</p>
+        <p><strong>Harga: Rp 35.000 - Rp 135.000</strong></p>
+        <button onclick="pilihUkuran('Bouquet Foto')">Tambah ke Keranjang</button>
+      </div>
+      <div class="product">
+        <h3>Doll Bouquet</h3>
+        <img src="foto/dollbouquet.PNG" onclick="zoom('Doll Bouquet')">
+        <p>🧸 Boneka Mini Lucu: Cocok untuk mempermanis tampilan, tersedia dalam berbagai pilihan karakter.</p>
+        <p><strong>Harga: Rp 35.000 - Rp 135.000</strong></p>
+        <button onclick="pilihUkuran('Doll Bouquet')">Tambah ke Keranjang</button>
+      </div>
+      <div class="product">
+        <h3>Gable Box</h3>
+        <img src="foto/gablebox.jpg" onclick="zoom('Gable Box')">
+        <p>🎁 Gable Box Eksklusif: Buket dikemas rapi dalam gable box kokoh dan estetik, cocok langsung untuk hadiah.</p>
+        <p><strong>Harga: Rp 25.000 - Rp 35.000</strong></p>
+        <button onclick="pilihUkuran('Gable Box')">Tambah ke Keranjang</button>
+      </div>
+    </section>
+  </main>
+
+    <section id="deskripsi" class="section">
+      <h2>Profil Toko</h2>
+      <p>Arless Bouquet menghadirkan berbagai macam kreasi buket yang tak hanya indah dipandang, tapi juga penuh makna. Kami menawarkan pilihan bouquet yang beragam yang dimana setiap rangkaian dibuat dengan detail dan sentuhan personal, cocok untuk hadiah ulang tahun, wisuda, anniversary, hingga kejutan sederhana yang tak terlupakan. ✨</p>
+      <p>Dengan desain yang kreatif dan kemasan eksklusif, Arless Bouquet siap membuat momenmu jadi lebih spesial dan berkesan. 🌺</p>
+    </section>
+
+    <section id="kontak" class="section">
+      <h2>Kontak Kami</h2>
+      <p>WhatsApp : <a href="https://wa.me/6289638174176">+62 896-3817-4176</a></p>
+      <p>Email : <a href="https://mail.google.com/mail/?view=cm&fs=1&to=arlessbouquet@gmail.com&su=Order%20Arless%20Bouquet" target="_blank">arlessbouquet@gmail.com</a></p>
+      <p>Instagram : <a href="https://www.instagram.com/bouquet.arlesssid">@bouquet.arlesssid</a></p>
+    </section>
+
+    <section id="pembayaran" class="section">
+      <h2>Pembayaran</h2>
+      <p>Pembayaran hanya melalui WhatsApp setelah konfirmasi pesanan.</p>
+    </section>
+
+    <section id="keranjang" class="section">
+      <h2>Checkout</h2>
+      <ul id="list-keranjang"></ul>
+      <p>Total: Rp<span id="total">0</span></p>
+      <button onclick="checkoutWhatsApp()">Pesan Sekarang</button>
+    </section>
+
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h3 id="judul-popup">Detail Pemesanan</h3>
+    
+      <div id="form-ukuran" style="display:none;">
+        <p>Ukuran:
+          <select id="input-ukuran">
+            <option value="Kecil">Kecil</option>
+            <option value="Sedang">Sedang</option>
+            <option value="Besar">Besar</option>
+            <option value="Jumbo">Jumbo</option>
+            <option value="XXL">XXL</option>
+          </select>
+        </p>
+      </div>
+
+      <div id="form-jumlah" style="display:none;">
+        <p>Jumlah:
+          <input type="number" id="input-jumlah" min="1" value="1">
+        </p>
+      </div>
+
+      <div id="form-warna" style="display:none;">
+        <p>Warna:
+          <input type="text" id="input-warna" placeholder="Contoh: Merah, Biru">
+        </p>
+      </div>
+
+      <div id="form-aksesoris" style="display:none;">
+        <p>Aksesoris:</p>
+      <div id="list-aksesoris"></div>
+    </div>
+
+      <p>Request Tambahan Harga (Rp): 
+        <input type="number" id="input-tambahan" min="0" value="0">
+      </p>
+
+      <p><strong>Harga Total: Rp<span id="harga-popup">0</span></strong></p>
+
+      <span onclick="tutupPopup()" style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 1.5rem; color: #333;">&times;</span>
+
+      <button onclick="simpanPesanan()">Tambah ke Keranjang</button>
+      <button onclick="requestWhatsApp()">Request</button>
+    </div>
+  </div>
+
+  <div id="popup-welcome" class="popup">
+    <div class="popup-content">
+      <h3>Psst... ada bouquet yang nunggu kamu, lho!</h3>
+      <p>Arless Bouquet udah siapin rangkaian manis buat nemenin harimu. Disini semuanya bisa, tinggal pilih, kami yang kirim 💌</p>
+      <button onclick="document.getElementById('popup-welcome').style.display='none'"> 🌺 Jelajahi Bunga-Bunga Cantik</button>
+    </div>
+  </div>
+
+  <div id="popup-keranjang" class="popup">
+    <div class="popup-content">
+      <h3>Isi Keranjang</h3>
+      <ul id="list-popup-keranjang"></ul>
+      <p>Total: Rp<span id="total-popup">0</span></p>
+      <button onclick="scrollKeCheckout()">Checkout</button>
+      <span onclick="tutupPopupKeranjang()" style="position: absolute; top: 10px; right: 15px; cursor: pointer; font-size: 1.5rem; color: #333;">&times;</span>
+    </div>
+  </div>
+
+  <div id="popup-zoom" class="popup">
+    <div class="popup-content" style="
+      width: 300px; 
+      height: auto; 
+      background: rgba(0, 0, 0, 0.8); 
+      position: relative; 
+      padding: 1rem; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center;
+      border-radius: 8px;
+    ">
+      <span onclick="tutupZoom()" style="
+        position: absolute; 
+        top: 10px; 
+        right: 15px; 
+        cursor: pointer; 
+        font-size: 1.5rem; 
+        color: white;
+        z-index: 1001;
+      ">&times;</span>
+
+      <img id="zoom-image" src="" style="max-width: 100%; height: auto; border-radius: 8px;">
+    </div>
+  </div>
+
+  <script>
+    function pilihUkuran(nama) {
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function tutupPopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    function zoom(nama) {
+      const produkList = document.querySelectorAll('#produk .product');
+      produkList.forEach(prod => {
+        const judul = prod.querySelector('h3').textContent;
+        if (judul === nama) {
+          const imgSrc = prod.querySelector('img').getAttribute('src');
+          document.getElementById('zoom-image').setAttribute('src', imgSrc);
+          document.getElementById('popup-zoom').style.display = 'flex';
+        }
+      }); 
+    }
+
+    function tutupZoom() {
+      document.getElementById('popup-zoom').style.display = 'none';
+    }
+
+    window.onload = () => {
+      document.getElementById('popup-welcome').style.display = 'flex';
+
+      const semuaBagian = ["slider-container", "produk", "deskripsi", "kontak", "pembayaran", "keranjang"];
+      semuaBagian.forEach(id => {
+        const elemen = document.getElementById(id);
+        if (elemen) {
+          elemen.style.display = 'block';
+          elemen.classList.add('show');
+        }
+      });
+    };
+
+    let bagianAktif = null;
+
+    function toggleBagian(bagianId) {
+      const semuaBagian = ["slider-container", "produk", "deskripsi", "kontak", "pembayaran", "keranjang"];
+      const target = document.getElementById(bagianId);
+
+      if (bagianAktif === bagianId) {
+        semuaBagian.forEach(id => {
+          const elemen = document.getElementById(id);
+          if (elemen) elemen.style.display = 'block';
+        });
+        bagianAktif = null;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        semuaBagian.forEach(id => {
+          const elemen = document.getElementById(id);
+          if (elemen) elemen.style.display = (id === bagianId) ? 'block' : 'none';
+        });
+        bagianAktif = bagianId;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    let keranjang = [];
+
+    const aksesorisProduk = {
+      "Bouquet Snack": [
+        { nama: "Kupu-kupu", harga: 2000 },
+        { nama: "Lampu", harga: 5000 },
+        { nama: "Boneka Wisuda", harga: 15000 },
+        { nama: "Artificial", harga: 30000 },
+        { nama: "Bunga Satin", harga: 30000 }
+      ],
+      "Bouquet Foto": [
+        { nama: "Kupu-kupu", harga: 2000 },
+        { nama: "Lampu", harga: 5000 },
+        { nama: "Boneka Wisuda", harga: 15000 },
+        { nama: "Artificial", harga: 30000 },
+        { nama: "Bunga Satin", harga: 30000 }
+      ],
+      "Bouquet Satin": [
+        { nama: "Gliter", harga: 0 },
+        { nama: "Mahkota Kecil", harga: 8000 },
+        { nama: "Mahkota Sedang", harga: 15000 },
+        { nama: "Kupu-kupu", harga: 5000 },
+        { nama: "Boneka Wisuda", harga: 15000 }
+      ],
+      "Bouquet Kupu-kupu": [
+        { nama: "Lampu", harga: 5000 },
+        { nama: "Kupu-kupu Tambahan", harga: 2000 },
+        { nama: "Boneka Wisuda", harga: 15000 }
+      ],
+      "Bouquet Bricks": [
+        { nama: "Kupu-kupu", harga: 2000 },
+        { nama: "Lampu", harga: 5000 },
+        { nama: "Boneka Wisuda", harga: 15000 },
+        { nama: "Artificial", harga: 30000 },
+        { nama: "Bunga Satin", harga: 30000 }
+      ],
+    };
+
+    const hargaProduk = {
+      "Bouquet Uang": { min: 50000, max: 350000 },
+      "Bouquet Kupu-kupu": { min: 35000, max: 50000 },
+      "Bouquet Satin": { tangkai: 8000, paket5: 35000 },
+      "Bouquet Artificial": { min: 35000, max: 135000 },
+      "Bouquet Snack": { min: 35000, max: 135000 },
+      "Bouquet Mercy/Kawat": { min: 35000, max: 135000 },
+      "Bouquet Foto": { min: 35000, max: 135000 },
+      "Doll Bouquet": { min: 35000, max: 135000 },
+      "Bouquet Manly": { min: 35000, max: 135000 },
+      "Gable Box": { min: 25000, max: 35000 }
+    };
+
+    let produkDipilih = "";
+    let hargaSementara = 0;
+
+    function pilihUkuran(nama) {
+      produkDipilih = nama;
+      document.getElementById('popup').style.display = 'flex';
+      document.getElementById('judul-popup').textContent = nama;
+
+      document.getElementById('form-ukuran').style.display = 'none';
+      document.getElementById('form-jumlah').style.display = 'none';
+      document.getElementById('form-aksesoris').style.display = 'none';
+      document.getElementById('form-warna').style.display = 'none';
+      document.getElementById('list-aksesoris').innerHTML = '';
+      document.getElementById('input-tambahan').value = 0;
+      document.getElementById('input-warna').value = '';
+
+      if (nama === "Bouquet Satin" || nama === "Bouquet Uang" || nama === "Bouquet Kupu-kupu") {
+        document.getElementById('form-jumlah').style.display = 'block';
+      }
+
+      if (["Bouquet Artificial", "Bouquet Snack", "Bouquet Mercy/Kawat", "Bouquet Foto", "Doll Bouquet", "Bouquet Manly", "Bouquet Bricks"].includes(nama)) {
+        document.getElementById('form-ukuran').style.display = 'block';
+      }
+
+      if (nama === "Bouquet Satin") {
+        document.getElementById('form-warna').style.display = 'block';
+      }
+
+      if (nama === "Bouquet Kupu-kupu") {
+        document.getElementById('form-warna').style.display = 'block';
+      }
+
+      if (aksesorisProduk[nama]) {
+        document.getElementById('form-aksesoris').style.display = 'block';
+        aksesorisProduk[nama].forEach((item, index) => {
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.value = item.harga;
+          checkbox.id = 'aksesoris-' + index;
+          checkbox.addEventListener('change', hitungHarga);
+
+          const label = document.createElement('label');
+          label.htmlFor = 'aksesoris-' + index;
+          label.textContent = `${item.nama} (+Rp${item.harga.toLocaleString()})`;
+
+          const container = document.createElement('div');
+          container.appendChild(checkbox);
+          container.appendChild(label);
+
+          document.getElementById('list-aksesoris').appendChild(container);
+        });
+      }
+
+      hitungHarga();
+    }
+
+    function hitungHarga() {
+      let harga = 0;
+      const jumlah = parseInt(document.getElementById('input-jumlah').value) || 1;
+      const ukuran = document.getElementById('input-ukuran').value;
+      const tambahan = parseInt(document.getElementById('input-tambahan').value) || 0;
+
+      let aksesorisHarga = 0;
+      const aksesorisChecklist = document.querySelectorAll('#list-aksesoris input:checked');
+      aksesorisChecklist.forEach(item => {
+        aksesorisHarga += parseInt(item.value);
+      });
+
+      if (produkDipilih === "Bouquet Satin") {
+        harga = jumlah >= 5 ? 35000 : jumlah * 8000;
+      } else if (produkDipilih === "Bouquet Uang") {
+        if (jumlah <= 10) harga = 50000;
+        else if (jumlah <= 20) harga = 65000;
+        else if (jumlah <= 30) harga = 85000;
+        else if (jumlah <= 40) harga = 110000;
+        else if (jumlah <= 50) harga = 160000;
+        else if (jumlah <= 60) harga = 195000;
+        else if (jumlah <= 70) harga = 230000;
+        else if (jumlah <= 80) harga = 280000;
+        else if (jumlah <= 90) harga = 310000;
+        else if (jumlah <= 100) harga = 350000;
+        else harga = 350000;
+      } else if (produkDipilih === "Bouquet Kupu-kupu") {
+        if (jumlah >= 20) harga = 50000;
+        else harga = 35000;
+      } else if (["Bouquet Artificial", "Bouquet Snack", "Bouquet Mercy/Kawat", "Bouquet Foto", "Doll Bouquet", "Bouquet Manly","Bouquet Bricks"].includes(produkDipilih)) {
+        switch (ukuran) {
+          case "Kecil": harga = 35000; break;
+          case "Sedang": harga = 55000; break;
+          case "Besar": harga = 75000; break;
+          case "Jumbo": harga = 100000; break;
+          case "XXL": harga = 135000; break;
+        }
+      } else if (produkDipilih === "Gable Box") {
+        harga = 25000;
+      } else {
+        harga = 100000;
+      }
+
+      harga += aksesorisHarga + tambahan;
+      hargaSementara = harga;
+      document.getElementById('harga-popup').textContent = harga.toLocaleString();
+    }
+
+    document.getElementById('input-jumlah').addEventListener('input', hitungHarga);
+    document.getElementById('input-ukuran').addEventListener('change', hitungHarga);
+    document.querySelectorAll('#form-aksesoris input').forEach(chk => chk.addEventListener('change', hitungHarga));
+    document.getElementById('input-tambahan').addEventListener('input', hitungHarga);
+
+    function simpanPesanan() {
+      keranjang.push({ nama: produkDipilih, harga: hargaSementara });
+      updateKeranjang();
+      tutupPopup();
+    }
+
+    function tutupPopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+
+    function updateKeranjang() {
+      const list = document.getElementById('list-keranjang');
+      list.innerHTML = '';
+      let total = 0;
+
+      keranjang.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${item.nama} - Rp${item.harga.toLocaleString()}`;
+        const btn = document.createElement('button');
+        btn.textContent = "Hapus";
+        btn.style.marginLeft = '10px';
+        btn.onclick = () => {
+          keranjang.splice(index, 1);
+          updateKeranjang();
+        };
+        li.appendChild(btn);
+        list.appendChild(li);
+        total += item.harga;
+      });
+
+      document.getElementById('total').textContent = total.toLocaleString();
+      document.getElementById('cart-count').textContent = keranjang.length;
+    }
+
+    function checkoutWhatsApp() {
+      if (keranjang.length === 0) return alert("Keranjang kosong!");
+
+      let pesan = "Halo Arless Bouquet,%0ASaya ingin memesan:%0A";
+      keranjang.forEach(item => {
+        pesan += `- ${item.nama} (Rp${item.harga.toLocaleString()})%0A`;
+      });
+
+      const totalHarga = keranjang.reduce((acc, val) => acc + val.harga, 0);
+      pesan += `%0ATotal: Rp${totalHarga.toLocaleString()}`;
+
+      window.open(`https://wa.me/6289638174176?text=${encodeURIComponent(pesan)}`, '_blank');
+    }
+
+    function requestWhatsApp() {
+      const warna = document.getElementById('input-warna').value;
+      let pesan = `Halo, saya ingin konsultasi terkait ${produkDipilih}.%0A`;
+
+      if (warna) {
+        pesan += `Warna: ${warna}%0A`;
+      }
+
+      pesan += "Bisa tolong info lebih lanjut? Terima kasih.";
+      window.open(`https://wa.me/6289638174176?text=${encodeURIComponent(pesan)}`, '_blank');
+    }
+
+    function keBeranda() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function cariProduk() {
+      const keyword = document.getElementById('search-produk').value.toLowerCase();
+      const produkList = document.querySelectorAll('#produk .product');
+      let ketemu = false;
+
+      produkList.forEach(prod => {
+        const nama = prod.querySelector('h3').textContent.toLowerCase();
+        if (nama.includes(keyword)) {
+          prod.scrollIntoView({ behavior: 'smooth' });
+          ketemu = true;
+          return;
+        }
+      });
+
+      if (!ketemu) {
+        alert('Produk tidak ditemukan!');
+      }
+    }
+
+    function kePembayaran() {
+      toggleBagian('pembayaran');
+    }
+
+    function bukaPopupKeranjang() {
+      updatePopupKeranjang();
+      document.getElementById('popup-keranjang').style.display = 'flex';
+    }
+
+    function tutupPopupKeranjang() {
+      document.getElementById('popup-keranjang').style.display = 'none';
+    }
+
+    function updatePopupKeranjang() {
+      const list = document.getElementById('list-popup-keranjang');
+      list.innerHTML = '';
+      let total = 0;
+
+      keranjang.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `${item.nama} - Rp${item.harga.toLocaleString()} <button onclick="hapusDariKeranjang(${index})" style="margin-left:10px;">Hapus</button>`;
+        list.appendChild(li);
+        total += item.harga;
+      });
+
+      document.getElementById('total-popup').textContent = total.toLocaleString();
+    }
+
+    function hapusDariKeranjang(index) {
+      keranjang.splice(index, 1);
+      updateKeranjang();
+      updatePopupKeranjang();
+    }
+
+    function scrollKeCheckout() {
+      tutupPopupKeranjang();
+      const checkoutSection = document.getElementById('keranjang');
+      if (checkoutSection) {
+      checkoutSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function tampilProduk(namaProduk) {
+      const semuaBagian = ["slider-container", "produk", "deskripsi", "kontak", "pembayaran", "keranjang"];
+      const produkSection = document.getElementById('produk');
+
+      if (bagianAktif === namaProduk) {
+        
+        semuaBagian.forEach(id => {
+          const elemen = document.getElementById(id);
+          if (elemen) elemen.style.display = 'block';
+        });
+        const semuaProduk = document.querySelectorAll('#produk .product');
+        semuaProduk.forEach(prod => prod.style.display = 'block');
+        bagianAktif = null;
+      } else {
+        
+        semuaBagian.forEach(id => {
+          const elemen = document.getElementById(id);
+          if (elemen) elemen.style.display = (id === 'produk') ? 'block' : 'none';
+        });
+
+        
+        const semuaProduk = document.querySelectorAll('#produk .product');
+        semuaProduk.forEach(prod => {
+          const nama = prod.querySelector('h3').textContent;
+          prod.style.display = nama.includes(namaProduk) ? 'block' : 'none';
+        });
+
+        bagianAktif = namaProduk;
+        produkSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+  </script>
+</body>
+</html>
