@@ -290,7 +290,55 @@
         padding: 0.3rem 0.7rem;
       }
     }
+    body.dark-mode {
+      background: linear-gradient(to bottom, #121212, #1e1e1e);
+      color: #f1f1f1;
+    }
 
+    body.dark-mode header {
+      background: #0d47a1 url('foto/batik.jpg') center/cover no-repeat;
+      color: white;
+    }
+
+    body.dark-mode .running-text {
+      background: #0d47a1;
+      color: white;
+    }
+
+    body.dark-mode nav {
+      background: #0d47a1;
+    }
+
+    body.dark-mode nav a:hover,
+    body.dark-mode .dropdown:hover {
+      background: #1565c0;
+    }
+
+    body.dark-mode .product {
+      background: #2b2b2b;
+      border: 1px solid #424242;
+    }
+
+    body.dark-mode .section {
+      background: #2b2b2b;
+      border-left: 5px solid #0d47a1;
+    }
+
+    body.dark-mode .popup-content {
+      background: #333;
+      color: #f1f1f1;
+    }
+
+    body.dark-mode button,
+    body.dark-mode .btn-portfolio {
+      background: #1976d2;
+      color: white;
+    }
+
+    body.dark-mode button:hover,
+    body.dark-mode .btn-portfolio:hover {
+      background: #0d47a1;
+    }
   </style>
 </head>
 <body>
@@ -340,6 +388,7 @@
     <button class="btn-portfolio" onclick="window.open('https://drive.google.com/drive/folders/1O7H8eKcHDLz1dXXL7ckjjf9FlKVaGK4f', '_blank')">
       Portofolio
     </button>
+    <button id="toggle-mode" class="btn-portfolio" style="margin-left:10px;">🌙</button>
   </nav>
 
   <div style="margin-top: 50px;">
@@ -926,6 +975,19 @@
         produkSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }
+
+    document.getElementById('toggle-mode').addEventListener('click', function () {
+      const body = document.body;
+      const tombol = document.getElementById('toggle-mode');
+      
+      body.classList.toggle('dark-mode');
+
+      if (body.classList.contains('dark-mode')) {
+        tombol.textContent = "☀️";
+      } else {
+        tombol.textContent = "🌙";
+      }
+    });
 
   </script>
 </body>
