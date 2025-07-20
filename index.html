@@ -382,7 +382,13 @@
         <a href="#" onclick="tampilProduk('Gable Box'); return false;">Gable Box</a>
       </div>
     </div>
-    <a href="#deskripsi" onclick="toggleBagian('deskripsi'); return false;">Profil Toko</a>
+    <div class="dropdown">
+      Profil Toko
+      <div class="submenu">
+        <a href="#" onclick="toggleBagian('informasi'); return false;">Informasi</a>
+        <a href="#" onclick="toggleBagian('maps'); return false;">Maps</a>
+      </div>
+    </div>
     <a href="#kontak" onclick="toggleBagian('kontak'); return false;">Kontak</a>
     <a href="#" onclick="kePembayaran(); return false;">Pembayaran</a>
     <button class="btn-portfolio" onclick="window.open('https://drive.google.com/drive/folders/1O7H8eKcHDLz1dXXL7ckjjf9FlKVaGK4f', '_blank')">
@@ -482,29 +488,31 @@
     </section>
   </main>
 
-    <section id="deskripsi" class="section">
+    <section id="informasi" class="section">
       <h2>Profil Toko</h2>
       <p>Arless Bouquet menghadirkan berbagai macam kreasi buket yang tak hanya indah dipandang, tapi juga penuh makna. Kami menawarkan pilihan bouquet yang beragam yang dimana setiap rangkaian dibuat dengan detail dan sentuhan personal, cocok untuk hadiah ulang tahun, wisuda, anniversary, hingga kejutan sederhana yang tak terlupakan. ✨</p>
       <p>Dengan desain yang kreatif dan kemasan eksklusif, Arless Bouquet siap membuat momenmu jadi lebih spesial dan berkesan. 🌺</p>
+    </section>
+    
+    <section id="maps" class="section">
+      <h3>Lokasi Toko:</h3>
+      <div style="margin-top: 1rem;">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.235541195269!2d107.085319!3d-6.230488999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698f9a457a9a17%3A0xbef95e8c7d1571a7!2sBase%20Camp%20PRATAMA%20COMUNITY!5e0!3m2!1sid!2sid!4v1720102200000!5m2!1sid!2sid" 
+          width="100%" 
+          height="300" 
+          style="border:0; border-radius: 8px;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
 
-    <h3>Lokasi Toko:</h3>
-    <div style="margin-top: 1rem;">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.235541195269!2d107.085319!3d-6.230488999999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698f9a457a9a17%3A0xbef95e8c7d1571a7!2sBase%20Camp%20PRATAMA%20COMUNITY!5e0!3m2!1sid!2sid!4v1720102200000!5m2!1sid!2sid" 
-        width="100%" 
-        height="300" 
-        style="border:0; border-radius: 8px;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </div>
-
-    <p style="margin-top: 10px;">
-      <a href="https://maps.app.goo.gl/k9YH12FB8u4Scj669?g_st=aw" target="_blank" style="color:#1976d2; font-weight:bold;">
-        Buka di Google Maps
-      </a>
-    </p>
+      <p style="margin-top: 10px;">
+        <a href="https://maps.app.goo.gl/k9YH12FB8u4Scj669?g_st=aw" target="_blank" style="color:#1976d2; font-weight:bold;">
+          Buka di Google Maps
+        </a>
+      </p>
     </section>
 
     <section id="kontak" class="section">
@@ -645,7 +653,7 @@
     window.onload = () => {
       document.getElementById('popup-welcome').style.display = 'flex';
 
-      const semuaBagian = ["slider-container", "produk", "deskripsi", "kontak", "pembayaran", "keranjang"];
+      const semuaBagian = ["slider-container", "produk", "informasi", "maps", "kontak", "pembayaran", "keranjang"];
       semuaBagian.forEach(id => {
         const elemen = document.getElementById(id);
         if (elemen) {
@@ -658,7 +666,7 @@
     let bagianAktif = null;
 
     function toggleBagian(bagianId) {
-      const semuaBagian = ["slider-container", "produk", "deskripsi", "kontak", "pembayaran", "keranjang"];
+      const semuaBagian = ["slider-container", "produk", "informasi", "maps", "kontak", "pembayaran", "keranjang"];
       const target = document.getElementById(bagianId);
 
       if (bagianAktif === bagianId) {
