@@ -198,6 +198,11 @@
     .dropdown:hover .submenu {
       display: block;
     }
+    .submenu-kanan {
+      top: 0;
+      left: 100%;
+      margin-left: 5px;
+    }
     .slider-container {
       overflow: hidden;
       width: calc(100% - 20px);
@@ -383,10 +388,15 @@
       </div>
     </div>
     <div class="dropdown">
-      Profil Toko ▼
+      About Us ▼
       <div class="submenu">
-        <a href="#" onclick="toggleBagian('informasi'); return false;">Informasi</a>
-        <a href="#" onclick="toggleBagian('maps'); return false;">Maps</a>
+        <div class="dropdown" onclick="toggleSubmenu(event)">
+          Profil >
+          <div class="submenu submenu-kanan" style="display: none;">
+            <a href="#" onclick="toggleBagian('informasi'); return false;">Informasi</a>
+            <a href="#" onclick="toggleBagian('maps'); return false;">Maps</a>
+          </div>
+        </div>
       </div>
     </div>
     <a href="#kontak" onclick="toggleBagian('kontak'); return false;">Kontak</a>
@@ -493,7 +503,7 @@
       <p>Arless Bouquet menghadirkan berbagai macam kreasi buket yang tak hanya indah dipandang, tapi juga penuh makna. Kami menawarkan pilihan bouquet yang beragam yang dimana setiap rangkaian dibuat dengan detail dan sentuhan personal, cocok untuk hadiah ulang tahun, wisuda, anniversary, hingga kejutan sederhana yang tak terlupakan. ✨</p>
       <p>Dengan desain yang kreatif dan kemasan eksklusif, Arless Bouquet siap membuat momenmu jadi lebih spesial dan berkesan. 🌺</p>
     </section>
-    
+
     <section id="maps" class="section">
       <h3>Lokasi Toko:</h3>
       <div style="margin-top: 1rem;">
@@ -1023,6 +1033,18 @@
       } else {
         tombol.textContent = "🌙";
       }
+    });
+
+    function toggleSubmenu(event) {
+      event.stopPropagation(); // Biar klik nggak nutup semua
+      const submenu = event.currentTarget.querySelector('.submenu-kanan');
+      submenu.style.display = (submenu.style.display === "block") ? "none" : "block";
+    }
+
+    document.addEventListener('click', function(e) {
+      document.querySelectorAll('.submenu-kanan').forEach(function(sub) {
+        sub.style.display = 'none';
+      });
     });
 
   </script>
